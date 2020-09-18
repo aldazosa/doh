@@ -37,9 +37,33 @@
                  [nav-link "#/" "Home" :home]
                  [nav-link "#/about" "About" :about]]]]))
 
+
+(defn gráfica
+  [filename doc]
+  [oz/vega-lite doc
+   {:actions          {:source   false
+                       :compiled false
+                       :editor   false}
+    :i18n             {:CLICK_TO_VIEW_ACTIONS "Click para ver acciones"
+                       :SVG_ACTION            "Descargar como SVG"
+                       :PNG_ACTION            "Descargar como PNG"}
+    :downloadFileName filename}])
+
+
+(defn play-data [& names]
+  (for [n names
+        i (range 20)]
+    {:time i :item n :quantity (+ (Math/pow (* i (count n)) 0.8) (rand-int (count n)))}))
+
+
 (defn about-page []
   [:section.section>div.container>div.content
-   [:img {:src "/img/warning_clojure.png"}]])
+   [:img {:src "/img/warning_clojure.png"}]
+   [gráfica "test" {:data {:values (play-data "monkey" "slipper" "broom")}
+                    :encoding {:x {:field "time" :type "quantitative"}
+                               :y {:field "quantity" :type "quantitative"}
+                               :color {:field "item" :type "nominal"}}
+                    :mark "line"}]])
 
 (defn home-page []
   [:section.section>div.container>div.content
