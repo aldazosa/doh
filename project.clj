@@ -72,7 +72,7 @@
      :output-to "target/test/test.js"
      :autorun   true}}}
 
-  :npm-deps [[node-libs-browser "2.2.1"]
+  :npm-deps [[shadow-cljs "2.11.4"]
              [vega "5.15.0"]
              [vega-lite "4.15.0"]
              [vega-embed "6.12.2"]]
