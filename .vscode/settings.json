@@ -1,0 +1,51 @@
+{
+        "calva.customREPLCommandSnippets": [
+        {
+            "name": "Start doh Server",
+            "ns": "user",
+            "repl": "clj",
+            "snippet": "(start)"
+        },
+        {
+            "name": "Stop doh Server",
+            "ns": "user",
+            "repl": "clj",
+            "snippet": "(stop)"
+        },
+        {
+            "name": "Restart doh Server",
+            "ns": "user",
+            "repl": "clj",
+            "snippet": "(restart)"
+        }
+    ],
+    "calva.replConnectSequences": [
+                {
+            "name": "Server only - doh",
+            "projectType": "Leiningen",
+            "afterCLJReplJackInCode": "(start)",
+            "cljsType": "none",
+            "menuSelections": {
+                "leinProfiles": [
+                    "dev"
+                ]
+            }
+        },
+        {
+            "name": "Server + Client – doh",
+            "projectType": "lein-shadow",
+            "afterCLJReplJackInCode": "(start)",
+            "cljsType": "shadow-cljs",
+            "menuSelections": {
+                "leinProfiles": [
+                    "dev"
+                ],
+                "cljsLaunchBuilds": [
+                    "app",
+                    "test"
+                ],
+                "cljsDefaultBuild": "app"
+            }
+        }
+    ]
+}
