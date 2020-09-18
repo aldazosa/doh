@@ -72,7 +72,10 @@
      :output-to "target/test/test.js"
      :autorun   true}}}
 
-  :npm-deps []
+  :npm-deps [[node-libs-browser "2.2.1"]
+             [vega "5.15.0"]
+             [vega-lite "4.15.0"]
+             [vega-embed "6.12.2"]]
   :npm-dev-deps [[xmlhttprequest "1.8.0"]]
 
   :profiles
